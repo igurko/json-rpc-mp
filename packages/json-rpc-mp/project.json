@@ -1,0 +1,26 @@
+{
+  "name": "json-rpc-mp",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "root": "packages/json-rpc-mp",
+  "sourceRoot": "packages/json-rpc-mp",
+  "projectType": "library",
+  "tags": ["publishable:npm:package"],
+  "targets": {
+    "build": {
+      "executor": "@nx/rollup:rollup",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "./dist",
+        "tsConfig": "./tsconfig.lib.json",
+        "main": "./src/index.ts",
+        "compiler": "swc",
+        "format": ["esm", "cjs"],
+        "assets": [
+          "packages/json-rpc-mp/README.md",
+          "packages/json-rpc-mp/CHANGELOG.md",
+          "packages/json-rpc-mp/package.json"
+        ]
+      }
+    }
+  }
+}
